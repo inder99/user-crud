@@ -12,6 +12,7 @@ import {MessageService} from '../service/message.service';
 })
 export class UserFormComponent implements OnInit {
   getId : number = undefined;
+  editBool : boolean = false;
   addUser : FormGroup;
   user : User;
   updateUserDetails : User;
@@ -35,6 +36,7 @@ export class UserFormComponent implements OnInit {
     })
   }
   updateUser(){
+
     this.userService.getSpecificUser(this.getId).subscribe((data)=>{
       this.updateUserDetails = data;
       this.addUser.setValue({
@@ -43,7 +45,7 @@ export class UserFormComponent implements OnInit {
         email : data.email
       });
       this.messageObject.setMessage("Update Task");
-      console.log("UserDetails",this.addUser);
+      this.editBool = true;
     });
   }
   resetField(){

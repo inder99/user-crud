@@ -31,7 +31,8 @@ export class UserListComponent implements OnInit {
     });
   }
   editUser(id){
-    this.router.navigate(['/' + id]);    
+    this.messageObject.setUserId(id);
+    this.router.navigate(['/update/' + id]);    
   }
   deleteUser(id){
     this.userService.deleteUserService(id).subscribe(()=>{

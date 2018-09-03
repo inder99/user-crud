@@ -1,4 +1,4 @@
-<form [formGroup]="addUser" (ngSubmit)="adding();">
+<form *ngIf="!editBool" [formGroup]="addUser" (ngSubmit)="adding();">
   <div class="form-group">
     <label for="" class="control-lable">First Name*</label>
     <input type="text" class="form-control" formControlName="firstName">
@@ -12,8 +12,42 @@
       <input type="email" class="form-control" formControlName="email">
   </div>
   <div class="form-group">
-    <button class="btn btn-primary">
-      <span class="glyphicon glyphicon-plus">Add</span>
-    </button>
+    <div *ngIf="!editBool">
+      <button class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus">Add</span>
+      </button>
+    </div>
+    <div *ngIf="editBool">
+        <button class="btn btn-success">
+          <span class="glyphicon glyphicon-plus">Update</span>
+        </button>
+    </div>  
   </div>
 </form>
+
+<form *ngIf="editBool" [formGroup]="addUser" (ngSubmit)="adding();">
+    <div class="form-group">
+      <label for="" class="control-lable">First Name*</label>
+      <input type="text" class="form-control" formControlName="firstName">
+    </div>
+    <div class="form-group">
+        <label for="" class="control-lable">Last Name*</label>
+        <input type="text" class="form-control" formControlName="lastName">    
+    </div>
+    <div class="form-group">
+        <label for="" class="control-lable">Email*</label>
+        <input type="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <div *ngIf="!editBool">
+        <button class="btn btn-primary">
+          <span class="glyphicon glyphicon-plus">Add</span>
+        </button>
+      </div>
+      <div *ngIf="editBool">
+          <button class="btn btn-success">
+            <span class="glyphicon glyphicon-plus">Update</span>
+          </button>
+      </div>  
+    </div>
+  </form>

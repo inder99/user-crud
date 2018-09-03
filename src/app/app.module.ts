@@ -8,17 +8,20 @@ import { UserListComponent } from './user-list/user-list.component';
 import {UserService} from './service/user.service';
 import {MessageService} from './service/message.service';
 import {RouterModule, Routes} from '@angular/router';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 const routes : Routes = [
-  {path : ':id', component : AppComponent},
+  {path : '', component : AppComponent},
   {path : 'userList', component : UserListComponent},
-  {path : 'addUser', component : UserFormComponent}
+  {path : 'addUser', component : UserFormComponent},
+  {path : 'update/:id', component: UserUpdateComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,13 @@ export class MessageService {
       msg
     });
   }
+  setUserId(id:number):void{
+    this.subject.next({
+      id
+    });
+  }
   getMessage(): Observable<any>{
     return this.subject.asObservable();
   }
+
 }
