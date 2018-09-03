@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {User} from '../../model/user';
 import {UserService} from '../../service/user.service';
 import {MessageService} from '../../service/message.service';
@@ -19,6 +19,7 @@ export class UserFormComponent implements OnInit {
   currentLength : number ;
   constructor(private builder : FormBuilder,
     private route : ActivatedRoute,
+    private router : Router,
     private userService : UserService,
     private messageObject : MessageService
   ) { 
@@ -57,8 +58,11 @@ export class UserFormComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe((data)=>{
       this.messageObject.setMessage("Task_Updated");
       console.log("UserUpdated",this.user);
-      this.resetField();
+      this.router.navigate(['/']);    
     });
+  }
+  cancelUpdate(){
+    this.editBool=false;
   }
   resetField(){
     this.addUser = this.builder.group({
