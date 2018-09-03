@@ -9,9 +9,11 @@ import {UserService} from './service/user.service';
 import {MessageService} from './service/message.service';
 import {RouterModule, Routes} from '@angular/router';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
 
 const routes : Routes = [
-  {path : '', component : AppComponent},
+  { path : '', redirectTo : '/addUser', pathMatch : 'full'},
   {path : 'userList', component : UserListComponent},
   {path : 'addUser', component : UserFormComponent},
   {path : 'update/:id', component: UserUpdateComponent}
@@ -21,7 +23,9 @@ const routes : Routes = [
     AppComponent,
     UserFormComponent,
     UserListComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    NavMenuComponent,
+    UserManagerComponent
   ],
   imports: [
     BrowserModule,
