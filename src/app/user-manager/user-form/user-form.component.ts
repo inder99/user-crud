@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import {User} from '../model/user';
-import {UserService} from '../service/user.service';
-import {MessageService} from '../service/message.service';
+import {User} from '../../model/user';
+import {UserService} from '../../service/user.service';
+import {MessageService} from '../../service/message.service';
 
 @Component({
   selector: 'app-user-form',
@@ -36,7 +36,6 @@ export class UserFormComponent implements OnInit {
     })
   }
   updateUser(){
-
     this.userService.getSpecificUser(this.getId).subscribe((data)=>{
       this.updateUserDetails = data;
       this.addUser.setValue({
@@ -46,6 +45,19 @@ export class UserFormComponent implements OnInit {
       });
       this.messageObject.setMessage("Update Task");
       this.editBool = true;
+    });
+  }
+  updating(){
+    this.user = {
+      id : this.getId,
+      firstname : this.addUser.get('firstName').value,
+      lastname : this.addUser.get('lastName').value,
+      email : this.addUser.get('email').value
+    }
+    this.userService.updateUser(this.user).subscribe((data)=>{
+      this.messageObject.setMessage("Task_Updated");
+      console.log("UserUpdated",this.user);
+      this.resetField();
     });
   }
   resetField(){
@@ -70,10 +82,8 @@ export class UserFormComponent implements OnInit {
 
     this.userService.addUserService(this.user).subscribe((addUser) => {
       this.messageObject.setMessage('ADD_USER');
-      console.log(addUser);
       this.resetField();
     });
-
   } // adding() function ends here
 
 }

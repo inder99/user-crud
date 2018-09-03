@@ -20,8 +20,9 @@ export class UserService {
     return this.http.delete<User>(this.apiUrl + '/' + id);
   }
   getSpecificUser(id:any) : Observable<User>{
-    console.log("id",id);
     return this.http.get<User>(this.apiUrl + '/' + id);
   }
-
+  updateUser(temp:User):Observable<User>{
+    return this.http.put<User>(this.apiUrl+'/'+temp.id,temp);
+  }
 }

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserFormComponent } from './user-manager/user-form/user-form.component';
+import { UserListComponent } from './user-manager/user-list/user-list.component';
 import {UserService} from './service/user.service';
 import {MessageService} from './service/message.service';
 import {RouterModule, Routes} from '@angular/router';
@@ -13,7 +13,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';
 
 const routes : Routes = [
-  { path : '', redirectTo : '/addUser', pathMatch : 'full'},
+  { path : '', redirectTo : '/userManager', pathMatch : 'full'},
+  {path : 'userManager', component : UserManagerComponent},  
   {path : 'userList', component : UserListComponent},
   {path : 'addUser', component : UserFormComponent},
   {path : 'update/:id', component: UserUpdateComponent}
