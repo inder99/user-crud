@@ -31,7 +31,7 @@ export class UserListComponent implements OnInit {
     });
   }
   editUser(id){
-    this.messageObject.setUserId(id);
+    // this.messageObject.setUserId(id);
     this.router.navigate(['/update/' + id]);    
   }
   deleteUser(id){
