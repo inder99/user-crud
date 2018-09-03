@@ -1,0 +1,44 @@
+{
+  "userDetails": [
+    {
+      "id": 1,
+      "firstname": "inderjeet",
+      "lastname": "vashista",
+      "email": "inderjeet@gmail.com"
+    },
+    {
+      "id": 2,
+      "firstname": "jatin",
+      "lastname": "gupta",
+      "email": "jatin@gmail.com"
+    },
+    {
+      "id": 3,
+      "firstname": "aman",
+      "lastname": "saini",
+      "email": "aman@gmail.com"
+    }
+  ],
+  "Tasks": [
+    {
+      "id": 3,
+      "title": "learning angular",
+      "completed": true
+    },
+    {
+      "id": 8,
+      "title": "Learned Subject",
+      "completed": true
+    },
+    {
+      "id": 4,
+      "title": "Learned Directived",
+      "completed": false
+    },
+    {
+      "id": 9,
+      "title": "Inder you are awesome yr",
+      "completed": false
+    }
+  ]
+}

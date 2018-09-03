@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of users">
+      <td>{{u.id}}</td>
+      <td>{{u.firstname}} {{u.lastname}}</td>
+      <td>{{u.email}}</td>
+      <td>
+        <button class="btn btn-success" (click)="editUser(u.id)">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </button>
+        <button class="btn btn-danger" (click)="deleteUser(u.id);">
+            <span class="glyphicon glyphicon-remove"></span>
+        </button>  
+      </td>
+    </tr>
+  </tbody>
+  </table>
+  <router-outlet></router-outlet>

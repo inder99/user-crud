@@ -1,0 +1,19 @@
+<form [formGroup]="addUser" (ngSubmit)="adding();">
+  <div class="form-group">
+    <label for="" class="control-lable">First Name*</label>
+    <input type="text" class="form-control" formControlName="firstName">
+  </div>
+  <div class="form-group">
+      <label for="" class="control-lable">Last Name*</label>
+      <input type="text" class="form-control" formControlName="lastName">    
+  </div>
+  <div class="form-group">
+      <label for="" class="control-lable">Email*</label>
+      <input type="email" class="form-control" formControlName="email">
+  </div>
+  <div class="form-group">
+    <button class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus">Add</span>
+    </button>
+  </div>
+</form>
